@@ -28,16 +28,16 @@
             このテストを実施する際には、キーボードを備えたPCが必要です。
           </p>
         </el-tab-pane>
-        <!-- 测验说明 -->
-        <el-tab-pane label="测验说明" name="intro" :disabled="true">
-          <h2>测验说明</h2>
+        <!-- テストの説明 -->
+        <el-tab-pane label="テストの説明" name="intro" :disabled="true">
+          <h2>テストの説明</h2>
           <p>
-            接下来，请您使用键盘上 <span class="in">e</span> 和
+            キーボードの <span class="in">e</span>と
             <span class="in">i</span>
-            两个字母键，将出现的词语或者图片尽快归类。
+            を使用して，現れた単語や画像をできるだけ早く分類してくだい。
           </p>
-          <p>有四个组，每个组为：</p>
-          <h3>1.形容美味的词语：</h3>
+          <p>4つのグループ：</p>
+          <h3>1.美味しいを表す形容詞：</h3>
           <p>
             <el-tag
               style="background-color: transparent; color: black; margin-right: 5px;"
@@ -46,7 +46,7 @@
               >{{ word }}</el-tag
             >
           </p>
-          <h3>2.形容不美味的词语：</h3>
+          <h3>2.不味いを表す形容詞：</h3>
           <p>
             <el-tag
               style="background-color: transparent; color: black; margin-right: 5px;"
@@ -55,42 +55,44 @@
               >{{ word }}</el-tag
             >
           </p>
-          <h3>3.暖色食物图片</h3>
+          <h3>3.温かい色の食べ物</h3>
           <p style="text-indent:0;">
             <img :src="images.warmImageIntro" style="width: 100%;" />
           </p>
-          <h3>4.冷色食物图片</h3>
+          <h3>4.冷たい色の食べ物</h3>
           <p style="text-indent:0;">
             <img :src="images.coldImageIntro" style="width: 100%;" />
           </p>
-          <p>本测验一共有七个部分，每部分开始前会有操作说明，请您认真阅读。</p>
+          <p>
+            このテストには7つのパートがあり、それぞれのパートについて事前に説明がありますので、よく読んでください。
+          </p>
         </el-tab-pane>
 
         <!-- 基本表单信息 -->
-        <el-tab-pane label="基本表单" name="form" :disabled="true">
-          <h2>请填写您的基本信息</h2>
+        <el-tab-pane label="基本情報" name="form" :disabled="true">
+          <h2>基本情報入力</h2>
           <div class="form">
             <el-form
               :ref="userFormName"
               :model="userInfoForm"
               label-width="80px"
             >
-              <el-form-item label="您的出生年份">
+              <el-form-item label="生年">
                 <el-date-picker
                   v-model="userInfoForm.birthYear"
                   type="year"
-                  placeholder="选择或输入年份"
+                  placeholder="年"
                   value-format="yyyy"
                 >
                 </el-date-picker>
               </el-form-item>
-              <el-form-item label="您的性别">
+              <el-form-item label="性别">
                 <el-radio-group v-model="userInfoForm.gender" size="medium">
-                  <el-radio-button :label="0">女</el-radio-button>
-                  <el-radio-button :label="1">男</el-radio-button>
+                  <el-radio-button :label="0">女性</el-radio-button>
+                  <el-radio-button :label="1">男性</el-radio-button>
                 </el-radio-group>
               </el-form-item>
-              <el-form-item label="您的最高学历">
+              <el-form-item label="学歴">
                 <el-radio-group v-model="userInfoForm.edu" size="medium">
                   <el-radio-button
                     v-for="(item, index) in eduOptions"
@@ -100,7 +102,7 @@
                   >
                 </el-radio-group>
               </el-form-item>
-              <el-form-item label="您是否有视觉障碍">
+              <el-form-item label="">
                 <el-radio-group v-model="userInfoForm.dysopia" size="medium">
                   <el-radio-button
                     v-for="(item, index) in dysopiaOptions"
@@ -110,7 +112,7 @@
                   </el-radio-button>
                 </el-radio-group>
               </el-form-item>
-              <el-form-item label="您目前的关系状态">
+              <el-form-item label="">
                 <el-radio-group v-model="userInfoForm.relation" size="medium">
                   <el-radio-button
                     v-for="(item, index) in relateOptions"
@@ -120,7 +122,7 @@
                   >
                 </el-radio-group>
               </el-form-item>
-              <el-form-item label="您现在的饥饿程度">
+              <el-form-item label="">
                 <el-rate
                   v-model="userInfoForm.hunger"
                   :max="9"
@@ -172,31 +174,31 @@ export default class Welcome extends Vue {
   private tabs: string[] = ["welcome", "intro", "form"];
   private images = Images;
   private dysopiaOptions = [
-    ["否", "none"],
-    ["红色盲", "red_all"],
-    ["绿色盲", "green_all"],
-    ["蓝黄色盲", "blue_yellow_all"],
-    ["全色盲", "all"],
-    ["全色弱", "all_weak"],
-    ["红色弱", "red_weak"],
-    ["绿色弱", "green_weak"],
-    ["蓝黄色弱", "blue_yellow_weak"]
+    ["", "none"],
+    ["", "red_all"],
+    ["", "green_all"],
+    ["", "blue_yellow_all"],
+    ["", "all"],
+    ["", "all_weak"],
+    ["", "red_weak"],
+    ["", "green_weak"],
+    ["", "blue_yellow_weak"]
   ];
   private eduOptions = [
-    ["mid", "初中"],
-    ["sen", "高中"],
-    ["bachelor", "本科"],
-    ["graduate", "硕士"],
-    ["doctor", "博士"]
+    ["mid", ""],
+    ["sen", ""],
+    ["bachelor", ""],
+    ["graduate", ""],
+    ["doctor", ""]
   ];
   private relateOptions = [
-    ["单身", "single"],
-    ["恋爱", "loved"],
-    ["订婚", "engaged"],
-    ["结婚", "married"],
-    ["分手", "broke"],
-    ["离婚", "divorced"],
-    ["其它", "other"]
+    ["", "single"],
+    ["", "loved"],
+    ["", "engaged"],
+    ["", "married"],
+    ["", "broke"],
+    ["", "divorced"],
+    ["", "other"]
   ];
   private words = Words;
   private rateConfig: RateConfig = {
@@ -277,7 +279,7 @@ export default class Welcome extends Vue {
 
   get nextButtonText() {
     if (this.isLastTab) {
-      return "提交信息并进入测验";
+      return "次へ";
     }
     return "次へ";
   }

@@ -16,7 +16,7 @@ const routes = [
     component: Home,
     meta: {
       keepAlive: true,
-      title: "进行中的项目"
+      title: "進行中のプロジェクト"
     }
   },
   {
@@ -34,14 +34,14 @@ const routes = [
         path: "welcome",
         component: Welcome,
         meta: {
-          title: "项目说明 | 饮食内隐联想测验"
+          title: "項目説明 | 食事IATテスト"
         }
       },
       {
         path: "main",
         component: Container,
         meta: {
-          title: "测验进行中 | 饮食内隐联想测验"
+          title: "進行中 | 食事IATテスト"
         }
       },
       {

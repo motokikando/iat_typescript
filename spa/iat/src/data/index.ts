@@ -2,8 +2,8 @@ import { TestPack, SingleTest } from "@/interfaces/test";
 import { Shuffle } from "@/core";
 
 export const Words = {
-  positive: ["美味的", "可口的", "诱人的", "吸引人的", "令人垂涎的"],
-  negative: ["乏味的", "不吸引人的", "无味的", "不好吃的", "不美味的"]
+  positive: ["おいしい", "美味", "魅力的", "魅力的", "食欲をそそる"],
+  negative: ["まずい", "魅力的でない", "味がない", "味が悪い", "美味しくない"]
 };
 
 export const staticBase =
@@ -60,7 +60,7 @@ reversedWordTestCases.push(...buildTestCase(Words.positive, true, "negative"));
 reversedWordTestCases.push(...buildTestCase(Words.negative, true, "positive"));
 
 const title = (cur: number, all: number): string =>
-  `第 ${cur} 部分 / 共 ${all} 个部分`;
+  ` ${cur}  /  ${all} `;
 // Initial cases
 const InitCases = [
   // p1
@@ -68,17 +68,17 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现的图片是暖色食物图片时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现的图片是冷色食物图片时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
-        "一次出现一张图片。 ",
+        "表示される画像が暖かい色の食べ物の場合、左手でEを押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "表示される画像が冷たい色の食べ物の場合、右手でIを押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
+        "写真は一枚ずつ表示されます。 ",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "間違ったものを選択した場合は、赤い×印が表示されます。 この時点で別の文字キーを選択すると、次の画像に進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行ってください。</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "暖色食物图片",
-    negativeTitle: "冷色食物图片",
+    positiveTitle: "温かい食べ物",
+    negativeTitle: "冷たい食べ物",
     testCases: Shuffle([...baseImageTestCases, ...baseImageTestCases])
   },
   // p2
@@ -86,17 +86,17 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现美味类的词语时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现不美味类的词语时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
-        "一次出现一个词语。",
+        "美味しいに関わる形容詞が出てきたら、左手でEを押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "美味しくないに関わる形容詞が出てきたら、右手でIを押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
+        "単語ごとに表示されます。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "形容美味的词语",
-    negativeTitle: "形容不美味的词语",
+    positiveTitle: "美味しいを表現する形容詞",
+    negativeTitle: "不味いを表現する形容詞",
     testCases: Shuffle([...baseWordTestCases, ...baseWordTestCases])
   },
   // p3
@@ -104,16 +104,16 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现暖色食物图片或者美味类的词语时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现冷色食物图片或者不美味类的词语时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
+        "温かい食べ物 or 美味しいなどの形容詞が出た場合左手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "冷たい食べ物 or 美味しくないなどの形容詞が出た場合右手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "形容美味的词语 或 暖色食物图片",
-    negativeTitle: "形容不美味的词语 或 冷色食物图片",
+    positiveTitle: "美味しいを表現する形容詞  or  温かい食べ物",
+    negativeTitle: "不味いを表現する形容詞  or  冷たい食べ物",
     testCases: Shuffle([...baseWordTestCases, ...baseImageTestCases])
   },
   // p4 check
@@ -121,16 +121,16 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现暖色食物图片或者美味类的词语时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现冷色食物图片或者不美味类的词语时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
+        "温かい食べ物 or 美味しいなどの形容詞が出た場合左手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "冷たい食べ物 or 美味しくないなどの形容詞が出た場合右手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "形容美味的词语 或 暖色食物图片",
-    negativeTitle: "形容不美味的词语 或 冷色食物图片",
+    positiveTitle: "美味しいを表現する形容詞  or  温かい食べ物",
+    negativeTitle: "不味いを表現する形容詞  or  冷たい食べ物",
     testCases: Shuffle([
       ...baseWordTestCases,
       ...baseImageTestCases,
@@ -143,16 +143,16 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现的图片是冷色食物图片时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现的图片是暖色食物图片时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
+        "表示される画像が冷たい食品の場合は、左手で押してください。<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "表示される画像が温かい食品の場合は、右手で押してください。<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "冷色食物图片",
-    negativeTitle: "暖色食物图片",
+    positiveTitle: "冷たい食べ物",
+    negativeTitle: "温かい食べ物",
     testCases: Shuffle([...reversedImageTestCases, ...reversedImageTestCases])
   },
   // p6 reversed
@@ -160,16 +160,16 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现冷色食物图片或者美味类的词语时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现暖色食物图片或者不美味类的词语时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
+        "冷たい食べ物 or 美味しいなどの形容詞が出た場合左手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "温かい食べ物 or 美味しくないなどの形容詞が出た場合右手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>",
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>",
         ""
       ]
     },
-    positiveTitle: "形容美味的词语 或 冷色食物图片",
-    negativeTitle: "形容不美味的词语 或 暖色食物图片",
+    positiveTitle: "美味しいを表現する形容詞  or  冷たい食べ物",
+    negativeTitle: "不味いを表現する形容詞  or  温かい食べ物",
     testCases: Shuffle([...baseWordTestCases, ...reversedImageTestCases])
   },
   // p7 reversed check
@@ -177,15 +177,15 @@ const InitCases = [
     instruction: {
       title: "",
       cmds: [
-        "当出现冷色食物图片或者美味类的词语时，用左手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>字母键。",
-        "当出现暖色食物图片或者不美味类的词语时，用右手摁下<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>字母键。",
+        "冷たい食べ物 or 美味しいなどの形容詞が出た場合左手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>E</span>アルファベットキー。",
+        "温かい食べ物 or 美味しくないなどの形容詞が出た場合右手で押してください<span style='font-weight:800; padding: 0 10px; font-size:20px;'>I</span>アルファベットキー。",
         "",
-        "如果选错了，会出现一个红色的叉。此时选择另一个字母键，叉会自动消失并进入下一张图片（如果本部分还没结束的话）。",
-        "<h3><bold>请尽可能快而准确地完成。</bold></h3>"
+        "誤って選択をすると、赤い×印が表示されます。この時点で別のアルファベットキーを選択すると、自動で消え、次のセクションへ進みます。",
+        "<h3><bold>可能な限り迅速かつ正確に行なってください</bold></h3>"
       ]
     },
-    positiveTitle: "形容美味的词语 或 冷色食物图片",
-    negativeTitle: "形容不美味的词语 或 暖色食物图片",
+    positiveTitle: "美味しいを表現する形容詞  or  冷たい食べ物",
+    negativeTitle: "不味いを表現する形容詞  or  温かい食べ物",
     testCases: Shuffle([
       ...baseWordTestCases,
       ...reversedImageTestCases,

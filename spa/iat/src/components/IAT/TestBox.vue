@@ -3,14 +3,14 @@
     <el-row type="flex" justify="space-between">
       <el-col>
         <el-row class="indicator">
-          按下
+
           <el-button
             style="padding: 8px 10px; font-size:14px;"
             class="button"
             size="mini"
             circle
             >e</el-button
-          >表示
+          >
         </el-row>
         <el-row>
           <h2>{{ positiveTitle }}</h2>
@@ -18,14 +18,14 @@
       </el-col>
       <el-col>
         <el-row class="indicator">
-          按下
+
           <el-button
             style="padding: 8px 12px; font-size:14px;"
             class="button"
             size="mini"
             circle
             >i</el-button
-          >表示
+          >
         </el-row>
         <el-row>
           <h2>{{ negativeTitle }}</h2>
@@ -144,7 +144,7 @@ export default class TestBox extends Vue {
 
   get helpInfo() {
     if (!this.active) {
-      return "当您阅读完说明后，如果准备好了，请按 空格键 继续测验";
+      return "説明を読み終えた後、準備ができていればスペースバーを押してテストを開始してください。";
     }
     return "";
   }
